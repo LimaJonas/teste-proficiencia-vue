@@ -11,15 +11,15 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="user in users" :key="user.id">
+                <tr v-for="(user, index) in users" :key="user.id">
                     <td>{{user.nome}}</td>
                     <td>{{user.email}}</td>
                     <td>{{user.telefone}}</td>
                     <td>{{user.pj}}</td>
                     <td>
                         {{ user.index }}
-                        <button v-on:click="editarDado(user)">Editar</button>
-                        <button v-on:click="removerDado(user)">Apagar</button>
+                        <button v-on:click="editarDado(index)">Editar</button>
+                        <button v-on:click="removerDado(user, index)">Apagar</button>
                     </td>
                 </tr>
             </tbody>
@@ -30,12 +30,18 @@
 <script>
 export default {
     props: ['users'],
+    name: "Tabela",
     methods: {
-        editarDado(){
-            
+        editarDado(index){
+            this.$router.push({
+                name: "Editar",
+                params: { array: this.users, id: index }
+            });
         },
-        removerDado(user){
-            this.users.splice(user,1);
+        removerDado(user, index){
+            if(this.users[index] === user) { 
+                this.users.splice(index, 1)
+            }
         },
     }
 }

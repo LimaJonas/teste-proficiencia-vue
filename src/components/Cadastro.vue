@@ -98,6 +98,11 @@ export default {
       },
     }
   },
+  mounted(){
+      if(this.$route.params.array){
+        this.users = this.$route.params.array
+      } 
+  },
   methods: {
     salvarDados(){
       this.users.push({
