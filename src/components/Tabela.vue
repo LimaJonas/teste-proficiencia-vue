@@ -17,8 +17,9 @@
                     <td>{{user.telefone}}</td>
                     <td>{{user.pj}}</td>
                     <td>
-                        <button>Editar</button>
-                        <button>Apagar</button>
+                        {{ user.index }}
+                        <button v-on:click="editarDado(user)">Editar</button>
+                        <button v-on:click="removerDado(user)">Apagar</button>
                     </td>
                 </tr>
             </tbody>
@@ -29,6 +30,14 @@
 <script>
 export default {
     props: ['users'],
+    methods: {
+        editarDado(){
+            
+        },
+        removerDado(user){
+            this.users.splice(user,1);
+        },
+    }
 }
 </script>
 

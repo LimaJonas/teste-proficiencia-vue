@@ -116,8 +116,6 @@ export default {
       this.cpf = '';
       this.cnpj = '';
       this.pj = false;
-
-      console.log(this.users);
     }
   }
 }
