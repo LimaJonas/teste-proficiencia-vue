@@ -1,6 +1,6 @@
 # teste-proficiencia-vue
 
-## Project setup
+## Setup
 ```
 npm install
 ```
@@ -10,15 +10,7 @@ npm install
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Android APK
 ```
-npm run build
+build-apk/Teste_Proficiencia-debug
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
