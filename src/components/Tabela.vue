@@ -7,6 +7,7 @@
                     <td>Email</td>
                     <td>Telefone</td>
                     <td>Pessoa Jurídica?</td>
+                    <td>CPF/CNPJ</td>
                     <td>Ação</td>
                 </tr>
             </thead>
@@ -15,9 +16,9 @@
                     <td>{{user.nome}}</td>
                     <td>{{user.email}}</td>
                     <td>{{user.telefone}}</td>
-                    <td>{{user.pj}}</td>
+                    <td>{{ user.pj ? 'Sim' : 'Não' }}</td>
+                    <td>{{ user.pj ? user.cnpj : user.cpf }}
                     <td>
-                        {{ user.index }}
                         <button class="editar" v-on:click="editarDado(index)">Editar</button>
                         <button class="remover" v-on:click="removerDado(user, index)">Apagar</button>
                     </td>
@@ -39,7 +40,7 @@ export default {
             });
         },
         removerDado(user, index){
-            if(this.users[index] === user) { 
+            if(this.users[index] == user) { 
                 this.users.splice(index, 1)
             }
         },
